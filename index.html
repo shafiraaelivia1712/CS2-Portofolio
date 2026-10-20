@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CS2 // Operative Developer Portfolio</title>
+    <!-- Stylesheet Utama CS2 -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts Taktis CS2 -->
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700;800&family=JetBrains+Mono:wght@400;600;700;800&family=Rajdhani:wght@500;600;700;800&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <!-- FontAwesome untuk Ikon Militer & Senjata -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Canvas Asap Volumetrik CS2 Source 2 -->
+    <canvas id="cs2-smoke-canvas"></canvas>
+
+    <!-- Efek Garis Scanlines CRT/HUD CS2 -->
+    <div class="scanlines"></div>
+
+    <!-- Live Dynamic CS2 Killfeed (Pojok Kanan Atas) -->
+    <div id="cs2-killfeed"></div>
+    
+    <!-- Navbar CS2 Main Menu Style -->
+    <header class="cs-navbar">
+        <div class="nav-left">
+            <div class="game-logo">
+                <i class="fa-solid fa-shield-halved"></i>
+                <span>CS2 // DEV & TACTICAL PORTFOLIO</span>
+            </div>
+            <nav class="nav-links">
+                <button class="nav-btn active" data-target="home"><i class="fa-solid fa-house"></i> Home</button>
+                <button class="nav-btn" data-target="about"><i class="fa-solid fa-id-card"></i> About Dossier</button>
+                <button class="nav-btn" data-target="skills"><i class="fa-solid fa-ranking-star"></i> Skills & Arsenal</button>
+                <button class="nav-btn" data-target="projects"><i class="fa-solid fa-box-archive"></i> Projects Loadout</button>
+                <button class="nav-btn" data-target="achievements"><i class="fa-solid fa-trophy"></i> Match Highlights</button>
+                <button class="nav-btn" data-target="buymenu"><i class="fa-solid fa-cart-shopping"></i> Buy Menu</button>
+                <button class="nav-btn" data-target="contact"><i class="fa-solid fa-tower-broadcast"></i> Comms Contact</button>
+            </nav>
+        </div>
+        <div class="nav-right">
+            <!-- HUD Info -->
+            <div class="hud-pill premier-badge-pill">
+                <span>PREMIER: 23,825</span>
+            </div>
+            
+            <button class="btn-hud" id="sound-toggle-btn" title="Toggle Sound FX">
+                <i class="fa-solid fa-volume-high"></i> SFX: ON
+            </button>
+
+            <button class="btn-hud" onclick="toggleScoreboard()" title="Buka Scoreboard CS2">
+                <i class="fa-solid fa-chart-simple"></i> [TAB] SCOREBOARD
+            </button>
+
+            <div class="player-profile-mini">
+                <img src="https://api.dicebear.com/7.x/bottts/svg?seed=Nem0NoZoom" alt="Avatar">
+                <div class="player-info">
+                    <span class="p-name">Nem0 -no zoom</span>
+                    <span class="p-rank">Global Elite // Corporal 7</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="container">
+        
+        <!-- ==================================================== -->
+        <!-- 1. HOME SECTION                                      -->
+        <!-- ==================================================== -->
+        <section id="home" class="section active-section">
+            
+            <div class="home-top-grid">
+                <!-- Hero Left -->
+                <div class="hero-content">
+                    <div class="tactical-tag">// SENIOR FULLSTACK OPERATIVE & UI/UX ENGINEER</div>
+                    <h1 class="hero-title">ENGINEERING <span>DIGITAL WEAPONRY</span> & SUB-TICK CODE</h1>
+                    <p class="hero-desc">
+                        Membangun sistem web berskala enterprise, arsitektur microservices tangguh, dan antarmuka interaktif dengan presisi dan performa layaknya game Counter-Strike 2. Siap dideploy ke medan tempur digital tanpa latency.
+                    </p>
+                    <div class="hero-actions">
+                        <button class="btn-cs primary" onclick="switchSection('projects')">
+                            <i class="fa-solid fa-crosshairs"></i> INSPECT PROJECTS
+                        </button>
+                        <button class="btn-cs secondary" onclick="switchSection('achievements')">
+                            <i class="fa-solid fa-trophy"></i> HASIL MATCH (UPLOAD FOTO)
+                        </button>
+                        <button class="btn-cs secondary" onclick="switchSection('contact')">
+                            <i class="fa-solid fa-envelope"></i> SEND RADIO MSG
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Hero Right: Player Stats Panel -->
+                <div class="hero-stats-panel">
+                    
+                    <!-- Corporal Rank 7 Progression (Dust II Match Style) -->
+                    <div class="cs-rank-card">
+                        <div style="display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 0.8rem;">
+                            <span style="color: var(--cs-gold); font-weight: bold;"><i class="fa-solid fa-medal"></i> CORPORAL RANK 7</span>
+                            <span style="color: var(--cs-green); font-weight: bold;">2,298 XP</span>
+                        </div>
+                        <div class="cs-xp-track">
+                            <div class="cs-xp-fill" style="width: 74%;"></div>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-muted);">
+                            <span>Weekly Bonus: +30 XP</span>
+                            <span>Sergeant Rank 8 (702 XP left)</span>
+                        </div>
+                    </div>
+
+                    <div class="panel-header"><i class="fa-solid fa-chart-line"></i> OPERATIVE METRICS // OVERVIEW</div>
+                    <div class="stats-grid">
+                        <div class="stat-box">
+                            <span class="stat-num">5+</span>
+                            <span class="stat-label">Years Match Exp</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-num">45+</span>
+                            <span class="stat-label">Projects Won</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-num">99%</span>
+                            <span class="stat-label">Task Headshot Rate</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-num">2.42</span>
+                            <span class="stat-label">Code / Bug K/D Ratio</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-num">142.5</span>
+                            <span class="stat-label">ADR Sprint Impact</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-num">482 ★</span>
+                            <span class="stat-label">Total MVP Stars</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- ==================================================== -->
+        <!-- 2. ABOUT / DOSSIER SECTION                          -->
+        <!-- ==================================================== -->
+        <section id="about" class="section">
+            <div class="section-header">
+                <h2><i class="fa-solid fa-user-shield"></i> OPERATIVE DOSSIER // ABOUT ME</h2>
+                <span class="sec-code">ID: #CS2-DEV-7355608-ALPHA</span>
+            </div>
+            
+            <div class="about-grid">
+                <!-- Card 1: Dossier Background -->
+                <div class="about-card dossier">
+                    <h3>TACTICAL BACKGROUND & PHILOSOPHY</h3>
+                    <p>
+                        Seorang Fullstack Software Engineer & Tactical Problem Solver dengan pengalaman mendalam membangun aplikasi web modern berskala besar. Terbiasa memimpin squad pengembangan, menghadapi tenggat waktu kritis layaknya defuse bomb di 0.1 detik terakhir, dan memastikan performa zero-latency (Sub-Tick 128 Tick).
+                    </p>
+                    <p>
+                        Memegang prinsip <strong>Clean Architecture</strong>: struktur kode yang rapi, modular, mudah di-test, serta aman dari ancaman kerentanan digital.
+                    </p>
+                    <ul class="dossier-list">
+                        <li><span>Callsign / Nickname:</span> <strong>Nem0 -no zoom</strong></li>
+                        <li><span>Primary Role:</span> <strong>Frontend Sniper & Backend Anchor</strong></li>
+                        <li><span>Location:</span> <strong>Jakarta, Indonesia (Available for Remote)</strong></li>
+                        <li><span>Operating System:</span> <strong>Arch Linux & Windows Dual Boot</strong></li>
+                        <li><span>Language Fluency:</span> <strong>Indonesian (Native), English (Professional)</strong></li>
+                    </ul>
+
+                    <h3 style="margin-top: 1.8rem;">TACTICAL BATTLE STATION</h3>
+                    <ul class="dossier-list">
+                        <li><span>Processor & GPU:</span> <strong>AMD Ryzen 9 7950X + RTX 4080</strong></li>
+                        <li><span>Display:</span> <strong>27" Fast IPS 240Hz 1ms (Sub-Tick Clarity)</strong></li>
+                        <li><span>Keyboards & Mouse:</span> <strong>Custom Hall Effect + 8000Hz Polling</strong></li>
+                    </ul>
+                </div>
+
+                <!-- Card 2: Career Match History (Timeline) -->
+                <div class="about-card">
+                    <h3>CAREER MATCH HISTORY // TIMELINE</h3>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <span class="timeline-time">2024 - PRESENT</span>
+                            <div class="timeline-role">Lead Fullstack Operative // Stealth Tech</div>
+                            <p class="timeline-desc">
+                                Memimpin tim engineer dalam re-arsitektur monolitik ke microservices dengan Next.js, FastAPI, dan PostgreSQL. Mengurangi latency API hingga 42% dan memproses 100K+ transaksi harian.
+                            </p>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="timeline-time">2022 - 2024</span>
+                            <div class="timeline-role">Senior Frontend Combatant // Digital Agency</div>
+                            <p class="timeline-desc">
+                                Membangun 20+ aplikasi web interaktif, WebGL 3D showcase, dan design system enterprise menggunakan React, TypeScript, dan Tailwind CSS.
+                            </p>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="timeline-time">2020 - 2022</span>
+                            <div class="timeline-role">Junior Web Defender // Startup Studio</div>
+                            <p class="timeline-desc">
+                                Mengembangkan RESTful API, integrasi payment gateway, dan mengoptimalkan performa SEO serta core web vitals dengan skor 98+.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 1.5rem; padding: 1rem; background: var(--bg-card); border-left: 3px solid var(--accent-orange);">
+                        <div style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent-orange); font-weight: bold;">
+                            <i class="fa-solid fa-quote-left"></i> CODE MANTRA
+                        </div>
+                        <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 0.3rem; margin-bottom: 0;">
+                            "In code as in CS2: crosshair placement is architecture, recoil control is error handling, and clutch is delivering before the bomb ticks down."
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================================================== -->
+        <!-- 3. SKILLS SECTION                                   -->
+        <!-- ==================================================== -->
+        <section id="skills" class="section">
+            <div class="section-header">
+                <h2><i class="fa-solid fa-ranking-star"></i> SKILL GROUP // TECH ARSENAL</h2>
+                <span class="sec-code">VERIFIED CAPABILITIES (100% MASTERY TESTED)</span>
+            </div>
+            
+            <div class="skills-container">
+                <!-- Frontend Arsenal -->
+                <div class="skill-category">
+                    <h3><i class="fa-solid fa-code"></i> Frontend Arsenal</h3>
+                    <div class="skill-badges">
+                        <div class="badge">
+                            <div class="badge-info"><i class="fa-brands fa-html5" style="color: #e34f26;"></i> HTML5 & Semantic</div>
+                            <span class="badge-pct">98%</span>
+                        </div>
+                        <div class="badge">
+                            <div class="badge-info"><i class="fa-brands fa-css3-alt" style="color: #1572b6;"></i> CSS3 & Sass Animations</div>
+                            <span class="badge-pct">95%</span>
+                        </div>
+                        <div class="badge">
+                            <div class="badge-info"><i class="fa-brands fa-js" style="color: #f7df1e;"></i> JavaScript (ES2024+)</div>
+                            <span class="badge-pct">95%</span>
+                        </div>
+                        <div class="badge">
+                            <div class="badge-info"><i class="fa-solid fa-shield-halved" style="color: #3178c6;"></i> TypeScript Strict</div>
+                            <span class="badge-pct">92%</span>
+                        </div>
+                        <div class="badge">
+                            <div class="badge-info"><i class="fa-brands fa-react" style="color: #61dafb;"></i> React.js & Next.js</div>
+                            <span class="badge-pct">96%</span>
+                        </div>
+                        <div class="badge">
+                            <div class="badge-info"><i class="fa-brands fa-vuejs" style="color: #41b883;"></i> Vue 3 Composition</div>
+                            <span class="badge-pct">88%</span>
+                        </div>
+                        <div class="badge">
+                            <div class="badge-info"><i class="fa-solid fa-wind" style="color: #38bdf8;"></i> Tailwind CSS Modern</div>
+                            <span class="badge-pct">98%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Backend & Database -->
+                <div class="skill-category">
+                    <h3><i class="fa-solid fa-server"></i> Backend & Database</h3>
+                    <div class="skill-badges">
+                        <div class="badge">
+                            <div class="badge-info"><i class="fa-brands fa-node" style="color: #68a063;"></i> Node.js & Express</div>
+                            <span class="badge-pct">92%</span>
+                        </div>
+                        <div class="badge">
+                            <div class="badge-info"><i class="fa-brands fa-python" style="color: #3776ab;"></i> Python & FastAPI</div>
+                            <span class="badge-pct">90%</span>
+                        </div>
+                        <div class="badge">
+                            <div class="badge-info"><i class="fa-solid fa-database" style="color: #4479a1;"></i> PostgreSQL & Prisma</div>
+                            <span class="badge-pct">94%</span>
+                        </div>
+                        <div class="badge">
+                            <div class="badge-info"><i class="fa-solid fa-leaf" style="color: #47a248;"></i> MongoDB & NoSQL</div>
+                            <span class="badge-pct">88%</span>
+                        </div>
+                        <div class="badge">
+                            <div class="badge-info"><i class="fa-solid fa-bolt" style="color: #dc2626;"></i> Redis Caching & Queues</div>
+                            <span class="badge-pct">90%</span>
+                        </div>
+                        <div class="badge">
+                            <div class="badge-info"><i class="fa-solid fa-network-wired" style="color: #e535ab;"></i> GraphQL & RESTful</div>
+                            <span class="badge-pct">95%</span>
+                        </div>
+                        <div class="badge">
+                            <div class="badge-info"><i class="fa-solid fa-crosshairs" style="color: #ffd700;"></i> Clean Architecture</div>
+                            <span class="badge-pct">96%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DevOps & Tactical Tools -->
+                <div class="skill-category">
+                    <h3><i class="fa-solid fa-toolbox"></i> DevOps & Tactical Tools</h3>
+                    <div class="skill-badges">
+                        <div class="badge">
+                            <div class="badge-info"><i class="fa-brands fa-docker" style="color: #2496ed;"></i> Docker Containers</div>
+                            <span class="badge-pct">92%</span>
+                        </div>
+                        <div class="badge">
+                            <div class="badge-info"><i class="fa-brands fa-git-alt" style="color: #f05032;"></i> Git & GitHub Actions</div>
+                            <span class="badge-pct">98%</span>
+                        </div>
+                        <div class="badge">
+                            <div class="badge-info"><i class="fa-solid fa-terminal" style="color: #00ffcc;"></i> Linux CLI & Bash</div>
+                            <span class="badge-pct">90%</span>
+                        </div>
+                        <div class="badge">
+                            <div class="badge-info"><i class="fa-solid fa-cloud" style="color: #ff9900;"></i> AWS & Vercel Deploy</div>
+                            <span class="badge-pct">88%</span>
+                        </div>
+                        <div class="badge">
+                            <div class="badge-info"><i class="fa-brands fa-figma" style="color: #f24e1e;"></i> Figma UI/UX Tactical</div>
+                            <span class="badge-pct">92%</span>
+                        </div>
+                        <div class="badge">
+                            <div class="badge-info"><i class="fa-solid fa-scissors" style="color: #4ade80;"></i> Crisis Defusal (Hotfix)</div>
+                            <span class="badge-pct">99%</span>
+                        </div>
+                        <div class="badge">
+                            <div class="badge-info"><i class="fa-solid fa-comments" style="color: #a855f7;"></i> Squad Radio Comms</div>
+                            <span class="badge-pct">96%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Shortcut to Buy Menu -->
+            <div style="background: var(--bg-card); border: 1px solid var(--border-color); padding: 1.2rem; display: flex; justify-content: space-between; align-items: center; border-radius: 4px;">
+                <div>
+                    <h4 style="color: #fff; font-size: 1.1rem; margin-bottom: 2px;">Ingin menjelajahi skill ini dalam format CS2 Buy Menu?</h4>
+                    <p style="color: var(--text-muted); font-size: 0.85rem;">Buka loadout persenjataan lengkap dengan simulasi bujet ekonomi $16,000.</p>
+                </div>
+                <button class="btn-cs primary" onclick="switchSection('buymenu')">
+                    <i class="fa-solid fa-cart-shopping"></i> OPEN CS2 BUY MENU
+                </button>
+            </div>
+        </section>
+
+        <!-- ==================================================== -->
+        <!-- 4. PROJECTS / INVENTORY SECTION                     -->
+        <!-- ==================================================== -->
+        <section id="projects" class="section">
+            <div class="section-header">
+                <h2><i class="fa-solid fa-box-open"></i> INVENTORY // FEATURED PROJECTS LOADOUT</h2>
+                <span class="sec-code">SELECT WEAPON ITEM TO INSPECT</span>
+            </div>
+
+            <!-- Projects Filter Bar -->
+            <div class="projects-filter-bar">
+                <button class="proj-filter-btn active" data-cat="all" onclick="filterProjects('all')">ALL RARITIES</button>
+                <button class="proj-filter-btn" data-cat="fullstack" onclick="filterProjects('fullstack')">FULLSTACK</button>
+                <button class="proj-filter-btn" data-cat="frontend" onclick="filterProjects('frontend')">FRONTEND & 3D</button>
+                <button class="proj-filter-btn" data-cat="ai" onclick="filterProjects('ai')">AI & WEB3</button>
+                <button class="proj-filter-btn" data-cat="tools" onclick="filterProjects('tools')">SYSTEM TOOLS</button>
+            </div>
+
+            <div class="inventory-grid">
+                
+                <!-- Project 1: Covert Knife Tier -->
+                <div class="item-card covert" data-category="fullstack" onclick="openInspectModal('Cyberpunk Nexus E-Commerce', 'Platform e-commerce performa tinggi dengan sistem pembayaran real-time Stripe, arsitektur microservices Next.js & Node.js, dan cache Redis.', ['Next.js 14', 'Node.js', 'PostgreSQL', 'Stripe', 'Redis', 'Tailwind'], 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=800&q=80', 'https://github.com', 'https://github.com')">
+                    <div class="item-rarity-tag">★ Covert Item</div>
+                    <div class="item-img">
+                        <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=800&q=80" alt="Cyberpunk Store">
+                    </div>
+                    <div class="item-details">
+                        <span class="item-type">Fullstack Microservices</span>
+                        <h4>Cyberpunk Nexus Store</h4>
+                        <p class="item-wear">Factory New (Float: 0.001)</p>
+                    </div>
+                    <div class="inspect-hint"><i class="fa-solid fa-magnifying-glass"></i> INSPECT PROJECT</div>
+                </div>
+
+                <!-- Project 2: Classified Tier -->
+                <div class="item-card classified" data-category="frontend" onclick="openInspectModal('Tactical CS2 Stats & Telemetry', 'Dashboard analitik real-time berbasis WebSockets untuk melacak heatmap lemparan granat, killfeed sub-tick, dan statistik pemain CS2.', ['React', 'WebSockets', 'Python', 'Chart.js', 'Tailwind'], 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80', 'https://github.com', 'https://github.com')">
+                    <div class="item-rarity-tag">Classified</div>
+                    <div class="item-img">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" alt="Tactical Stats">
+                    </div>
+                    <div class="item-details">
+                        <span class="item-type">Telemetry Dashboard</span>
+                        <h4>CS2 Tactical Telemetry</h4>
+                        <p class="item-wear">Minimal Wear (Float: 0.075)</p>
+                    </div>
+                    <div class="inspect-hint"><i class="fa-solid fa-magnifying-glass"></i> INSPECT PROJECT</div>
+                </div>
+
+                <!-- Project 3: Covert Tier -->
+                <div class="item-card covert" data-category="ai" onclick="openInspectModal('AI Tactical Copilot & Automation Suite', 'Suite asisten AI otonom yang menganalisis codebase besar, mendeteksi celah keamanan, dan membuat automated unit test secara instan.', ['FastAPI', 'LangChain', 'OpenAI', 'React', 'Docker'], 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80', 'https://github.com', 'https://github.com')">
+                    <div class="item-rarity-tag">★ Covert Item</div>
+                    <div class="item-img">
+                        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80" alt="AI Copilot">
+                    </div>
+                    <div class="item-details">
+                        <span class="item-type">Autonomous AI Agent</span>
+                        <h4>AI Tactical Copilot</h4>
+                        <p class="item-wear">Factory New (Float: 0.004)</p>
+                    </div>
+                    <div class="inspect-hint"><i class="fa-solid fa-magnifying-glass"></i> INSPECT PROJECT</div>
+                </div>
+
+                <!-- Project 4: Restricted Tier -->
+                <div class="item-card restricted" data-category="ai" onclick="openInspectModal('Crypto Nexus Non-Custodial Wallet', 'Aplikasi Web3 wallet terdesentralisasi dengan keamanan tingkat tinggi, integrasi hardware wallet, dan smart contract DEX router.', ['TypeScript', 'Ethers.js', 'React', 'Solidity', 'Tailwind'], 'https://images.unsplash.com/photo-1621416894569-0f39ed31d247?auto=format&fit=crop&w=800&q=80', 'https://github.com', 'https://github.com')">
+                    <div class="item-rarity-tag">Restricted</div>
+                    <div class="item-img">
+                        <img src="https://images.unsplash.com/photo-1621416894569-0f39ed31d247?auto=format&fit=crop&w=800&q=80" alt="Crypto Nexus">
+                    </div>
+                    <div class="item-details">
+                        <span class="item-type">Decentralized Web3 App</span>
+                        <h4>Crypto Nexus Vault</h4>
+                        <p class="item-wear">Field-Tested (Float: 0.19)</p>
+                    </div>
+                    <div class="inspect-hint"><i class="fa-solid fa-magnifying-glass"></i> INSPECT PROJECT</div>
+                </div>
+
+                <!-- Project 5: Restricted Tier -->
+                <div class="item-card restricted" data-category="tools" onclick="openInspectModal('Squad Task Force Collaborative Suite', 'Sistem orkestrasi tugas tim dengan visual Kanban, chat suara WebRTC, dan sinkronisasi real-time tanpa delay.', ['Vue 3', 'Firebase', 'Pinia', 'Tailwind CSS', 'WebRTC'], 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80', 'https://github.com', 'https://github.com')">
+                    <div class="item-rarity-tag">Restricted</div>
+                    <div class="item-img">
+                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80" alt="Task Force">
+                    </div>
+                    <div class="item-details">
+                        <span class="item-type">Real-Time Team Tool</span>
+                        <h4>Task Force Manager</h4>
+                        <p class="item-wear">Field-Tested (Float: 0.22)</p>
+                    </div>
+                    <div class="inspect-hint"><i class="fa-solid fa-magnifying-glass"></i> INSPECT PROJECT</div>
+                </div>
+
+                <!-- Project 6: Mil-Spec Tier -->
+                <div class="item-card milspec" data-category="tools" onclick="openInspectModal('High-Velocity Microservice Gateway', 'API Gateway berkecepatan tinggi yang menangani 15K+ req/sec dengan rate limiter terdistribusi, authentication JWT, dan logging Prometheus.', ['Node.js', 'Express', 'Redis', 'Docker', 'Prometheus'], 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80', 'https://github.com', 'https://github.com')">
+                    <div class="item-rarity-tag">Mil-Spec</div>
+                    <div class="item-img">
+                        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80" alt="API Gateway">
+                    </div>
+                    <div class="item-details">
+                        <span class="item-type">Backend Infrastructure</span>
+                        <h4>High-Velocity Gateway</h4>
+                        <p class="item-wear">Battle-Scarred (Float: 0.48)</p>
+                    </div>
+                    <div class="inspect-hint"><i class="fa-solid fa-magnifying-glass"></i> INSPECT PROJECT</div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ==================================================== -->
+        <!-- 5. ACHIEVEMENTS & FOTO HASIL PENCAPAIAN CS2         -->
+        <!-- ==================================================== -->
+        <section id="achievements" class="section">
+            <div class="section-header">
+                <h2><i class="fa-solid fa-trophy"></i> HASIL PENCAPAIAN MATCH // CS2 HIGHLIGHTS</h2>
+                <span class="sec-code">OPERATIONAL SCREENSHOT ARCHIVE</span>
+            </div>
+
+            <!-- Upload Bar & Action -->
+            <div style="background: var(--bg-card); border: 1px solid var(--border-color); padding: 1.5rem; border-radius: 6px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
+                <div>
+                    <h3 style="color: #fff; font-size: 1.2rem; margin-bottom: 4px;">Koleksi Bukti Foto Pertandingan & Rekor Pertandingan</h3>
+                    <p style="color: var(--text-muted); font-size: 0.85rem;">Unggah screenshot hasil scoreboard, rank up, clutch ace, atau force-buy CS2 Anda.</p>
+                </div>
+                <div style="display: flex; gap: 0.8rem;">
+                    <button class="btn-cs primary" onclick="achSystem.openModal()">
+                        <i class="fa-solid fa-camera"></i> INPUT FOTO PENCAPAIAN BARU
+                    </button>
+                    <button class="btn-cs secondary" onclick="achSystem.reset()" title="Reset ke foto awal">
+                        <i class="fa-solid fa-rotate-left"></i> RESET
+                    </button>
+                </div>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div style="display: flex; gap: 0.5rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
+                <button class="proj-filter-btn ach-btn-filter active" data-filter="all" onclick="achSystem.filter('all')">SEMUA HASIL</button>
+                <button class="proj-filter-btn ach-btn-filter" data-filter="dust" onclick="achSystem.filter('dust')">DUST II</button>
+                <button class="proj-filter-btn ach-btn-filter" data-filter="anubis" onclick="achSystem.filter('anubis')">ANUBIS</button>
+                <button class="proj-filter-btn ach-btn-filter" data-filter="ancient" onclick="achSystem.filter('ancient')">ANCIENT</button>
+                <button class="proj-filter-btn ach-btn-filter" data-filter="victory" onclick="achSystem.filter('victory')">VICTORY ONLY</button>
+            </div>
+
+            <!-- Achievements Grid -->
+            <div id="achievements-grid" class="inventory-grid">
+                <!-- Di-render oleh script.js -->
+            </div>
+        </section>
+
+        <!-- ==================================================== -->
+        <!-- 6. BUY MENU LOADOUT SECTION (SEPERTI SCREENSHOT 3)   -->
+        <!-- ==================================================== -->
+        <section id="buymenu" class="section">
+            <div class="section-header">
+                <h2><i class="fa-solid fa-cart-shopping"></i> CS2 BUY MENU // LOADOUT SPECIFICATION</h2>
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <span class="sec-code">WALLETS:</span>
+                    <span id="buy-money-display" style="font-family: var(--font-mono); font-size: 1.2rem; color: #4ade80; font-weight: bold;">$16,000</span>
+                </div>
+            </div>
+
+            <div class="buy-menu-wrap">
+                <!-- Left 5 Columns: EQUIPMENT, PISTOLS, MID-TIER, RIFLES, GRENADES -->
+                <div class="buy-columns-grid">
+                    
+                    <div class="buy-cat-col">
+                        <div class="buy-cat-header">EQUIPMENT</div>
+                        <div id="buy-list-equipment" style="display: flex; flex-direction: column; gap: 6px;"></div>
+                    </div>
+
+                    <div class="buy-cat-col">
+                        <div class="buy-cat-header">PISTOLS</div>
+                        <div id="buy-list-pistols" style="display: flex; flex-direction: column; gap: 6px;"></div>
+                    </div>
+
+                    <div class="buy-cat-col">
+                        <div class="buy-cat-header">MID-TIER</div>
+                        <div id="buy-list-midtier" style="display: flex; flex-direction: column; gap: 6px;"></div>
+                    </div>
+
+                    <div class="buy-cat-col">
+                        <div class="buy-cat-header">RIFLES</div>
+                        <div id="buy-list-rifles" style="display: flex; flex-direction: column; gap: 6px;"></div>
+                    </div>
+
+                    <div class="buy-cat-col">
+                        <div class="buy-cat-header">GRENADES</div>
+                        <div id="buy-list-grenades" style="display: flex; flex-direction: column; gap: 6px;"></div>
+                    </div>
+
+                </div>
+
+                <!-- Right Inspector Card -->
+                <div class="buy-inspect-panel">
+                    <div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); padding-bottom: 8px;">
+                            <span style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent-orange);">WEAPON INSPECTION</span>
+                            <span id="buy-insp-cost" style="font-family: var(--font-mono); font-size: 1.2rem; font-weight: bold; color: var(--accent-orange);">$4,750</span>
+                        </div>
+
+                        <div style="text-align: center; margin: 1.5rem 0;">
+                            <i id="buy-insp-icon" class="fa-solid fa-crosshairs buy-big-icon"></i>
+                            <h3 id="buy-insp-name" style="font-size: 1.3rem; color: #fff; font-family: var(--font-display); margin-top: 5px;">
+                                System Architecture (The AWP)
+                            </h3>
+                        </div>
+
+                        <div style="margin-bottom: 1rem;">
+                            <div style="display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 0.8rem; margin-bottom: 4px;">
+                                <span style="color: var(--text-muted);">PROFICIENCY / MASTERY</span>
+                                <span id="buy-insp-val" style="color: #4ade80; font-weight: bold;">98%</span>
+                            </div>
+                            <div style="width: 100%; height: 8px; background: #090e15; border-radius: 2px; overflow: hidden; border: 1px solid var(--border-color);">
+                                <div id="buy-insp-bar" style="width: 98%; height: 100%; background: #4ade80; box-shadow: 0 0 8px rgba(74, 222, 128, 0.5);"></div>
+                            </div>
+                        </div>
+
+                        <p id="buy-insp-desc" style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; background: #090e15; padding: 10px; border-radius: 4px; border: 1px solid var(--border-color);">
+                            One-shot scalable architecture, microservices vs monolith, CDN caching.
+                        </p>
+                    </div>
+
+                    <button id="buy-equip-btn" class="btn-cs primary" style="width: 100%; justify-content: center; margin-top: 1.5rem;">
+                        <i class="fa-solid fa-cart-shopping"></i> EQUIP TO LOADOUT ($4,750)
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================================================== -->
+        <!-- 7. CONTACT / COMMS SECTION                          -->
+        <!-- ==================================================== -->
+        <section id="contact" class="section">
+            <div class="section-header">
+                <h2><i class="fa-solid fa-tower-broadcast"></i> COMMUNICATIONS // RADIO TRANSMISSION</h2>
+                <span class="sec-code">SEND MESSAGE TO HQ</span>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info-card">
+                    <h3>TACTICAL RADIO CHANNELS</h3>
+                    <p>Punya tawaran proyek, kerjasama software engineering, atau ingin scrim 1v1? Kirim transmisi sinyal sekarang.</p>
+                    <div class="radio-links">
+                        <a href="mailto:developer@cs2portfolio.com" class="radio-item"><i class="fa-solid fa-envelope"></i> developer@cs2portfolio.com</a>
+                        <a href="https://steamcommunity.com" target="_blank" class="radio-item"><i class="fa-brands fa-steam"></i> Steam: Nem0 -no zoom</a>
+                        <a href="https://github.com" target="_blank" class="radio-item"><i class="fa-brands fa-github"></i> github.com/operative-dev</a>
+                        <a href="https://linkedin.com" target="_blank" class="radio-item"><i class="fa-brands fa-linkedin"></i> linkedin.com/in/operative-dev</a>
+                        <a href="https://discord.com" target="_blank" class="radio-item"><i class="fa-brands fa-discord"></i> Discord: #tactical-dev</a>
+                    </div>
+
+                    <div style="margin-top: 2rem; padding: 1rem; background: var(--bg-card); border-radius: 4px;">
+                        <span style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent-orange); font-weight: bold;">
+                            <i class="fa-solid fa-clock"></i> RESPONSE TIME:
+                        </span>
+                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px; margin-bottom: 0;">
+                            Biasanya merespon dalam waktu &lt; 2 jam kerja (Sub-Tick Responsiveness).
+                        </p>
+                    </div>
+                </div>
+
+                <form class="contact-form" id="radioForm" onsubmit="handleRadioSubmit(event)">
+                    <div class="form-group">
+                        <label><i class="fa-solid fa-user"></i> OPERATIVE / SENDER CALLSIGN:</label>
+                        <input type="text" placeholder="Masukkan nama atau institusi Anda..." required>
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fa-solid fa-at"></i> FREQUENCY (EMAIL):</label>
+                        <input type="email" placeholder="nama@domain.com..." required>
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fa-solid fa-tag"></i> SUBJECT / MISSION TOPIC:</label>
+                        <select>
+                            <option>Tawaran Proyek Fullstack Web</option>
+                            <option>Konsultasi Arsitektur Perangkat Lunak</option>
+                            <option>Rekrutmen Full-time / Kontrak</option>
+                            <option>Invitasi Scrim / Match 1v1 CS2</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fa-solid fa-message"></i> TRANSMISSION MESSAGE:</label>
+                        <textarea rows="5" placeholder="Tulis rincian pesan atau brief spesifikasi proyek Anda..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn-cs primary" style="width: 100%; justify-content: center;">
+                        <i class="fa-solid fa-paper-plane"></i> TRANSMIT RADIO MESSAGE ("ROGER THAT")
+                    </button>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ==================================================== -->
+    <!-- MODAL 1: INSPECT PROJECT MODAL                      -->
+    <!-- ==================================================== -->
+    <div id="inspectModal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeInspectModal()">&times;</button>
+            <div class="modal-header-bar">
+                <span id="modalRarityBadge" class="modal-rarity">★ Covert Weapon Inspection</span>
+                <h3>SOURCE 2 PROJECT INSPECTOR</h3>
+            </div>
+            <div class="modal-body">
+                <div class="modal-img-container">
+                    <img id="modalImg" src="" alt="Inspect Item">
+                </div>
+                <div class="modal-info-container">
+                    <h2 id="modalTitle">Project Title</h2>
+                    <p id="modalDesc">Project description goes here...</p>
+                    <div class="tech-stack-used">
+                        <h4>TECH STACK UTILIZED:</h4>
+                        <div id="modalTechTags" class="tech-tags"></div>
+                    </div>
+                    <div class="modal-actions">
+                        <a href="https://github.com" target="_blank" id="modalLiveBtn" class="btn-cs primary"><i class="fa-solid fa-globe"></i> VISIT LIVE SITE</a>
+                        <a href="https://github.com" target="_blank" id="modalRepoBtn" class="btn-cs secondary"><i class="fa-brands fa-github"></i> VIEW SOURCE CODE</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================================================== -->
+    <!-- MODAL 2: UPLOAD FOTO HASIL PENCAPAIAN               -->
+    <!-- ==================================================== -->
+    <div id="ach-upload-modal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="close-modal" onclick="achSystem.closeModal()">&times;</button>
+            <div class="modal-header-bar">
+                <span class="modal-rarity">UPLOAD SCREENSHOT // MATCH RECORD</span>
+                <h3>INPUT FOTO HASIL PERTANDINGAN CS2</h3>
+            </div>
+            
+            <form id="ach-form" style="display: flex; flex-direction: column; gap: 1rem;">
+                
+                <!-- Dropzone File Upload -->
+                <div>
+                    <label style="display: block; font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent-orange); margin-bottom: 6px;">
+                        PILIH ATAU TARIK FOTO HASIL PERTANDINGAN (PNG, JPG, WEBP):
+                    </label>
+                    <div id="ach-dropzone" class="upload-dropzone">
+                        <input type="file" id="ach-file" accept="image/*" style="display: none;">
+                        <div id="ach-prompt-box">
+                            <i class="fa-solid fa-cloud-arrow-up" style="font-size: 2.2rem; color: var(--accent-orange); margin-bottom: 6px;"></i>
+                            <div style="font-weight: bold; color: #fff;">Klik untuk upload foto atau seret (drag & drop) gambar ke sini</div>
+                            <div style="font-size: 0.75rem; color: var(--text-muted); font-family: var(--font-mono);">Mendukung screenshot scoreboard, rank up, clutch ace</div>
+                        </div>
+                        <div id="ach-preview-box" style="display: none;">
+                            <img id="ach-preview-img" src="" style="max-height: 160px; border-radius: 4px; object-fit: contain; margin: 0 auto;">
+                            <div style="color: #4ade80; font-family: var(--font-mono); font-size: 0.8rem; margin-top: 6px;">✓ Foto berhasil diproses!</div>
+                        </div>
+                    </div>
+                    
+                    <div style="display: flex; align-items: center; gap: 8px; margin-top: 8px;">
+                        <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted);">Atau URL Gambar:</span>
+                        <input type="text" id="ach-inp-url" placeholder="https://contoh.com/screenshot.jpg" style="flex: 1; padding: 6px 10px; background: var(--bg-card); border: 1px solid var(--border-color); color: #fff; font-family: var(--font-mono); font-size: 0.8rem;">
+                    </div>
+                </div>
+
+                <!-- Form Fields Grid -->
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <div class="form-group" style="margin-bottom: 0;">
+                        <label>JUDUL PENCAPAIAN:</label>
+                        <input type="text" id="ach-inp-title" required placeholder="cth: Dust II Premier 64 Kills 6K DMG Solo Carry">
+                    </div>
+                    <div class="form-group" style="margin-bottom: 0;">
+                        <label>MAP CS2:</label>
+                        <select id="ach-inp-map">
+                            <option value="Dust II">Dust II</option>
+                            <option value="Mirage">Mirage</option>
+                            <option value="Inferno">Inferno</option>
+                            <option value="Nuke">Nuke</option>
+                            <option value="Anubis">Anubis</option>
+                            <option value="Ancient">Ancient</option>
+                            <option value="Vertigo">Vertigo</option>
+                            <option value="Office">Office</option>
+                        </select>
+                    </div>
+                    <div class="form-group" style="margin-bottom: 0;">
+                        <label>MODE PERTANDINGAN:</label>
+                        <input type="text" id="ach-inp-mode" value="Premier Match">
+                    </div>
+                    <div class="form-group" style="margin-bottom: 0;">
+                        <label>HASIL PERTANDINGAN:</label>
+                        <select id="ach-inp-result">
+                            <option value="VICTORY">VICTORY (MENANG)</option>
+                            <option value="RANK UP">RANK UP (NAIK PANGKAT)</option>
+                            <option value="ACE CLUTCH">ACE CLUTCH 1v5</option>
+                            <option value="MATCH LEAD">TACTICAL LEAD</option>
+                        </select>
+                    </div>
+                    <div class="form-group" style="margin-bottom: 0;">
+                        <label>SKOR AKHIR:</label>
+                        <input type="text" id="ach-inp-score" value="13 - 1">
+                    </div>
+                    <div class="form-group" style="margin-bottom: 0;">
+                        <label>PREMIER RATING / ELO:</label>
+                        <input type="text" id="ach-inp-rating" value="23,825">
+                    </div>
+                </div>
+
+                <!-- Quick Stats Grid -->
+                <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.5rem;">
+                    <div>
+                        <label style="font-size: 0.7rem; color: var(--text-muted); font-family: var(--font-mono);">KILLS</label>
+                        <input type="number" id="ach-inp-kills" value="64" style="width: 100%; padding: 6px; background: var(--bg-card); border: 1px solid var(--border-color); color: #4ade80; font-weight: bold; font-family: var(--font-mono);">
+                    </div>
+                    <div>
+                        <label style="font-size: 0.7rem; color: var(--text-muted); font-family: var(--font-mono);">DEATHS</label>
+                        <input type="number" id="ach-inp-deaths" value="2" style="width: 100%; padding: 6px; background: var(--bg-card); border: 1px solid var(--border-color); color: #eb4b4b; font-weight: bold; font-family: var(--font-mono);">
+                    </div>
+                    <div>
+                        <label style="font-size: 0.7rem; color: var(--text-muted); font-family: var(--font-mono);">ASSISTS</label>
+                        <input type="number" id="ach-inp-assists" value="0" style="width: 100%; padding: 6px; background: var(--bg-card); border: 1px solid var(--border-color); color: #cbd5e1; font-family: var(--font-mono);">
+                    </div>
+                    <div>
+                        <label style="font-size: 0.7rem; color: var(--text-muted); font-family: var(--font-mono);">HS %</label>
+                        <input type="number" id="ach-inp-hs" value="92" style="width: 100%; padding: 6px; background: var(--bg-card); border: 1px solid var(--border-color); color: #ffb703; font-weight: bold; font-family: var(--font-mono);">
+                    </div>
+                    <div>
+                        <label style="font-size: 0.7rem; color: var(--text-muted); font-family: var(--font-mono);">DAMAGE</label>
+                        <input type="number" id="ach-inp-damage" value="6055" style="width: 100%; padding: 6px; background: var(--bg-card); border: 1px solid var(--border-color); color: #00e5ff; font-weight: bold; font-family: var(--font-mono);">
+                    </div>
+                </div>
+
+                <!-- Award & Date -->
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <div class="form-group" style="margin-bottom: 0;">
+                        <label>GELAR KARTU / AWARD:</label>
+                        <input type="text" id="ach-inp-award" value="The Most Valuable MVP">
+                    </div>
+                    <div class="form-group" style="margin-bottom: 0;">
+                        <label>TANGGAL MATCH:</label>
+                        <input type="date" id="ach-inp-date" value="2026-10-15">
+                    </div>
+                </div>
+
+                <div class="form-group" style="margin-bottom: 0;">
+                    <label>DESKRIPSI / CATATAN RONDE:</label>
+                    <textarea id="ach-inp-desc" rows="2" placeholder="Catatan match CS2..."></textarea>
+                </div>
+
+                <div style="display: flex; justify-content: flex-end; gap: 0.8rem; margin-top: 1rem;">
+                    <button type="button" class="btn-cs secondary" onclick="achSystem.closeModal()">BATAL</button>
+                    <button type="submit" class="btn-cs primary"><i class="fa-solid fa-save"></i> SIMPAN HASIL KE PORTOFOLIO</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ==================================================== -->
+    <!-- MODAL 3: INSPECT HASIL PENCAPAIAN MATCH             -->
+    <!-- ==================================================== -->
+    <div id="ach-inspect-modal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="close-modal" onclick="achSystem.closeInspect()">&times;</button>
+            <div class="modal-header-bar">
+                <span class="modal-rarity">MATCH INSPECTION REPORT</span>
+                <h3 id="ach-insp-mode">Premier Match</h3>
+            </div>
+            <div class="modal-body">
+                <div class="modal-img-container" style="height: 320px;">
+                    <img id="ach-insp-img" src="" alt="Match Photo" style="object-fit: contain;">
+                </div>
+                <div class="modal-info-container">
+                    <div style="display: flex; gap: 8px; margin-bottom: 8px;">
+                        <span id="ach-insp-map" class="tech-tag" style="color: #00e5ff;">DUST II</span>
+                        <span id="ach-insp-result" class="tech-tag" style="color: #4ade80;">VICTORY</span>
+                        <span id="ach-insp-score" class="tech-tag">13 - 1</span>
+                    </div>
+
+                    <h2 id="ach-insp-title" style="font-size: 1.4rem; line-height: 1.2;">Dust II Domination</h2>
+                    <div style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent-orange); margin-bottom: 12px;">
+                        <span id="ach-insp-award">The Most Valuable MVP</span> • <span id="ach-insp-date">2026-10-14</span>
+                    </div>
+
+                    <p id="ach-insp-desc" style="font-size: 0.85rem; background: var(--bg-card); padding: 10px; border-radius: 4px; border: 1px solid var(--border-color);">
+                        Deskripsi pertandingan...
+                    </p>
+
+                    <div class="ach-stats-row" style="margin-top: 1rem;">
+                        <div class="ach-stat-chip"><span>KILLS</span><strong id="ach-insp-k" style="color: #4ade80; font-size: 1.1rem;">64</strong></div>
+                        <div class="ach-stat-chip"><span>DEATHS</span><strong id="ach-insp-d" style="color: #eb4b4b; font-size: 1.1rem;">2</strong></div>
+                        <div class="ach-stat-chip"><span>ASSISTS</span><strong id="ach-insp-a" style="font-size: 1.1rem;">0</strong></div>
+                        <div class="ach-stat-chip"><span>HS %</span><strong id="ach-insp-hs" style="color: #ffb703; font-size: 1.1rem;">92%</strong></div>
+                    </div>
+
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; font-family: var(--font-mono); font-size: 0.85rem;">
+                        <span style="color: var(--text-muted);">DAMAGE: <strong id="ach-insp-dmg" style="color: #00e5ff;">6055</strong></span>
+                        <span style="color: var(--cs-pink);">PREMIER ELO: <strong id="ach-insp-rating">23,825</strong></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================================================== -->
+    <!-- MODAL 4: CS2 SCOREBOARD OVERLAY [TAB]               -->
+    <!-- ==================================================== -->
+    <div id="cs2ScoreboardOverlay" class="scoreboard-overlay">
+        <div class="scoreboard-card">
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--border-color); padding-bottom: 12px;">
+                <div style="display: flex; align-items: center; gap: 1.5rem;">
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <span style="font-size: 1.8rem; font-family: var(--font-mono); font-weight: 800; color: #00e5ff;">13</span>
+                        <div style="font-size: 0.75rem; font-family: var(--font-mono);">
+                            <div style="color: #00e5ff; font-weight: bold;">COUNTER-TERRORISTS</div>
+                            <div style="color: var(--text-muted);">PROJECTS DEPLOYED</div>
+                        </div>
+                    </div>
+                    <span style="color: #475569; font-size: 1.5rem;">:</span>
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <span style="font-size: 1.8rem; font-family: var(--font-mono); font-weight: 800; color: #eb4b4b;">1</span>
+                        <div style="font-size: 0.75rem; font-family: var(--font-mono);">
+                            <div style="color: #eb4b4b; font-weight: bold;">TERRORISTS</div>
+                            <div style="color: var(--text-muted);">BUGS & DEBT DEFEATED</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="font-family: var(--font-mono); font-size: 0.8rem; color: #00e5ff;">
+                    💀 💀 💀 💀 💀 💀 💀 💀 💀 💀 💀 💀 🏆
+                </div>
+
+                <button onclick="toggleScoreboard()" style="background: transparent; border: 1px solid #334862; color: #cbd5e1; font-family: var(--font-mono); padding: 5px 12px; cursor: pointer; border-radius: 3px;">
+                    TUTUP [ESC]
+                </button>
+            </div>
+
+            <!-- Scoreboard Table -->
+            <table class="sb-table">
+                <thead>
+                    <tr>
+                        <th>OPERATIVE / PROYEK</th>
+                        <th>ELO</th>
+                        <th>PING</th>
+                        <th>FEATURES (K)</th>
+                        <th>BUGS DEFUSED (D)</th>
+                        <th>COLLAB (A)</th>
+                        <th>TEST HS%</th>
+                        <th>DAMAGE (USERS)</th>
+                        <th>MVP</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="background: rgba(0, 229, 255, 0.08);">
+                        <td style="font-weight: bold; color: #00e5ff;">★ Cyberpunk Nexus E-Commerce</td>
+                        <td style="color: var(--cs-pink);">23,825</td>
+                        <td style="color: #4ade80;">12ms</td>
+                        <td style="color: #4ade80; font-weight: bold;">64</td>
+                        <td style="color: #eb4b4b;">2</td>
+                        <td>8</td>
+                        <td style="color: #ffb703;">92%</td>
+                        <td style="color: #00e5ff; font-weight: bold;">6,055</td>
+                        <td style="color: var(--cs-gold);">★★★★★</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold; color: #fff;">Tactical CS2 Stats Engine</td>
+                        <td style="color: var(--cs-purple);">18,450</td>
+                        <td style="color: #4ade80;">15ms</td>
+                        <td style="color: #4ade80; font-weight: bold;">38</td>
+                        <td style="color: #eb4b4b;">5</td>
+                        <td>12</td>
+                        <td style="color: #ffb703;">84%</td>
+                        <td style="color: #00e5ff;">3,420</td>
+                        <td style="color: var(--cs-gold);">★★★</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold; color: #fff;">AI Tactical Copilot Automation</td>
+                        <td style="color: #4b69ff;">15,200</td>
+                        <td style="color: #4ade80;">18ms</td>
+                        <td style="color: #4ade80; font-weight: bold;">29</td>
+                        <td style="color: #eb4b4b;">4</td>
+                        <td>6</td>
+                        <td style="color: #ffb703;">88%</td>
+                        <td style="color: #00e5ff;">2,890</td>
+                        <td style="color: var(--cs-gold);">★★</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold; color: #fff;">Crypto Nexus Non-Custodial Vault</td>
+                        <td style="color: #4b69ff;">13,750</td>
+                        <td style="color: #4ade80;">14ms</td>
+                        <td style="color: #4ade80; font-weight: bold;">22</td>
+                        <td style="color: #eb4b4b;">6</td>
+                        <td>9</td>
+                        <td style="color: #ffb703;">79%</td>
+                        <td style="color: #00e5ff;">1,940</td>
+                        <td style="color: var(--cs-gold);">★</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div style="display: flex; justify-content: space-between; margin-top: 1.2rem; font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); border-top: 1px solid var(--border-color); padding-top: 8px;">
+                <span>Tips: Anda dapat menekan tombol <kbd style="background: #000; padding: 2px 6px; border: 1px solid #334862; border-radius: 3px; color: var(--accent-orange);">TAB</kbd> pada keyboard kapan saja untuk membuka scoreboard.</span>
+                <span style="color: #4ade80;">MATCH OUTCOME: 13-1 VICTORY</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="cs-footer">
+        <p>&copy; 2026 Counter-Strike 2 Tactical Portfolio // Built with Source 2 Engine Aesthetics & Sub-Tick Precision.</p>
+    </footer>
+
+    <!-- JavaScript File -->
+    <script src="script.js"></script>
+</body>
+</html>
