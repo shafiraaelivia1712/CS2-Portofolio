@@ -15,7 +15,6 @@ CS2-Portofolio/
 ├── index.html        # Main tactical dashboard & layout
 ├── style.css         # Custom CS2 HUD styling & animations
 ├── script.js         # Interactive UI logic & terminal effects
-└── assets/           # Images, icons, and tactical resources
 ```
 
 ---
